@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service|SWKR</title>
+    <link rel="shortcut icon" href="logo.jpg">
+
+
+<style>
+
+.containerr {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .service-block {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: transform 0.3s ease;
+        }
+        .service-block:hover {
+            transform: translateY(-5px);
+        }
+        .service-header h1 {
+            font-size: 36px;
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .service-heading {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ff0000;
+        }
+        .service-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .service-image {
+            flex: 1;
+            max-width: 45%;
+        }
+        .service-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin: 15% 0px;
+        }
+        .service-description {
+            flex: 1;
+            max-width: 50%;
+            padding-left: 30px;
+        }
+        .service-description p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #ff0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #cc0000;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .service-content {
+                flex-direction: column;
+            }
+            .service-description {
+                padding-left: 0;
+                margin-top: 20px;
+            }
+        }
+
+
+.navbar {
+  height: 100px;
+  width: 98vw; /* Adjusted to 100vw for full-width */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.315);
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 230px;
+  height: auto; /* Maintain aspect ratio, corrected from fixed height */
+}
+
+.logo a {
+  text-decoration: none;
+  color: black;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 2000;
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Increased spacing for better desktop layout */
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.9rem; /* Adjusted for a better desktop experience */
+  transition: color 0.3s, background-color 0.3s;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.nav-links a:hover {
+  color: rgb(255, 18, 18);
+  transform: scale(1.1); /* Subtle hover effect */
+  transition: 0.3s;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border-top: 2px solid rgba(0, 0, 0, 0.315);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(-20px); /* Slide up when hidden */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .nav-links.active {
+    display: flex;
+    transform: translateY(0); /* Slide down effect when active */
+    opacity: 1;
+  }
+
+  .menu-toggle {
+    display: block; /* Show hamburger on mobile */
+  }
+
+  .logo {
+    flex-grow: 1;
+  }
+
+  .nav-links a {
+    font-size: 1.5rem; /* Slightly larger text for mobile readability */
+    padding: 15px 20px;
+  }
+
+  .nav-links li {
+    margin-bottom: 10px; /* Space between menu items in mobile */
+  }
+}
+
+
+
+
+.footer{
+    position: relative;
+
+}
+
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+    color: #ffffff;
+}
+
+.footer .container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-col {
+    width: 23%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    width: 50px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #bbbbbb;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links {
+    display: flex;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+
+@media (max-width: 1024px) {
+    .footer-col {
+        width: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.2rem;
+    transition: color 0.3s, background-color 0.3s, transform 0.4s;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block; 
+}
+
+.nav-links a:hover {
+    color: rgb(255, 18, 18);
+    transform: scale(1.13);
+}
+
+
+
+.logo-phone-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
+.phone {
+  font-size: 18px;
+  margin-left: 20px; /* Adds space between the logo and the phone number */
+}
+
+.phone a {
+  text-decoration: none;
+  color: black;
+}
+
+.phone i {
+  margin-right: 10px; /* Adds some space between the phone icon and the number */
+}
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo-phone-container">
+        <a href="index.html" class="logo">
+          <img src="logorem.png" alt="Logo">
+        </a>
+        <div class="phone">
+          <a href="tel:+6267200999">
+            <i class="fa-solid fa-phone"></i> 0/62/7200999
+          </a>
+        </div>
+      </div>
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="all">
+        <div class="container">
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html#hero">Hero</a></li>
+            <li><a href="index.html#service-label">Our Services</a></li>
+            <li><a href=""><i class="fa-brands fa-whatsapp"></i> Whatsapp Us</a></li>
+            <li><a href=""><i class="fa-solid fa-envelope"></i> Email Us</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+
+
+    <main>
+      <div class="containerr">
+        <div class="service-header">
+            <h1>Our Car Services</h1>
+        </div>
+
+        <!-- Service Block 1 -->
+        <div class="service-block" id="1">
+            <div class="service-image">
+                <img src="https://c4.wallpaperflare.com/wallpaper/193/556/883/car-neon-chevrolet-corvette-race-cars-hd-wallpaper-preview.jpg" alt="Service 1">
+            </div>
+            <div class="service-description">
+                <h2 class="service-heading">Schadengutachten</h2>
+                <p>Our Car Damage Report Service provides a comprehensive evaluation of your vehicle after an accident. We ensure you have the necessary documentation for insurance claims or repairs.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, impedit nobis. Provident, porro officiis magni architecto possimus nemo nesciunt voluptatem adipisci nisi voluptates aliquid sunt at optio deserunt maxime veniam? Expedita nemo autem nam suscipit asperiores aut non eaque ab?We use advanced technology to offer accurate reports, giving you peace of mind in every situation.</p>
+            </div>
+        </div>
+
+        <!-- Service Block 2 -->
+        <div class="service-block" id="2">
+            <div class="service-image">
+                <img src="https://c4.wallpaperflare.com/wallpaper/193/556/883/car-neon-chevrolet-corvette-race-cars-hd-wallpaper-preview.jpg" alt="Service 2">
+            </div>
+            <div class="service-description">
+                <h2 class="service-heading">Wertgutachten</h2>
+                <p>Our Pre-Purchase Inspection service ensures that you’re buying a car in perfect condition. We provide detailed reports on the car’s status, helping you make informed decisions.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus voluptatum optio laudantium itaque qui tempore molestiae omnis est veritatis, possimus officia quisquam. Doloribus, molestiae, necessitatibus aperiam, facere tenetur praesentium sapiente hic culpa similique assumenda exercitationem ipsa dolores repudiandae temporibus architecto numquam consequatur voluptatum blanditiis? Temporibus sunt adipisci optio reprehenderit repellat.With our expert team, we check every detail, from the engine to the body, making sure the car meets your expectations.</p>
+            </div>
+        </div>
+
+        <!-- Service Block 3 -->
+        <div class="service-block" id="3">
+            <div class="service-image">
+                <img src="https://c4.wallpaperflare.com/wallpaper/193/556/883/car-neon-chevrolet-corvette-race-cars-hd-wallpaper-preview.jpg" alt="Service 3">
+            </div>
+            <div class="service-description">
+                <h2 class="service-heading">Kostenvoranschlag</h2>
+                <p>We offer expert advice and guidance on repair processes after an accident. Our team works with you to make sure the repairs are done properly and that all steps are documented for your benefit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quas consectetur debitis laborum id. Quis doloremque id in facilis recusandae quam, voluptate debitis, labore quisquam illo consequuntur deserunt aut. Nam, libero. Ut beatae distinctio itaque.We connect you with trusted professionals and offer support throughout the repair process.</p>
+            </div>
+        </div>
+
+        <!-- Service Block 4 -->
+        <div class="service-block" id="4">
+            <div class="service-image">
+                <img src="https://c4.wallpaperflare.com/wallpaper/193/556/883/car-neon-chevrolet-corvette-race-cars-hd-wallpaper-preview.jpg" alt="Service 4">
+            </div>
+            <div class="service-description">
+                <h2 class="service-heading">Reparaturbestatigung</h2>
+                <p>Our Annual Maintenance Service ensures that your car stays in top condition throughout the year. We perform regular check-ups and address any issues before they become major problems.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil dolorem consectetur doloremque iure tempora voluptatum vel aut distinctio ea, est numquam hic eveniet quod mollitia assumenda deserunt ipsam soluta error magnam corrupti! Sit omnis impedit voluptates ea, blanditiis sed nulla!With our professional team, your car will receive the best care, ensuring safety and performance on the road.</p>
+            </div>
+        </div>
+        
+        <!-- Back Button -->
+        <a href="index.html#service-label" class="back-button">Back to Services</a>
+    </div>
+
+</main>
+
+  
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#abu">About Us</a></li>
+                    <li><a href="service.html">Our Services</a></li>
+                    <li><a href="#">References</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Help</h4>
+                <ul>
+                    <li><a href="#faQ">FAQ</a></li>
+                    <li><a href="#con">Contact Us</a></li>
+                </ul>
+            </div>
+         
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+</html>
