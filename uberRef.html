@@ -155,8 +155,10 @@
     }
 }
 
-    /* General Navbar Styles */
-    .navbar {
+
+
+/* Navbar Styles */
+.navbar {
   height: 100px;
   width: 100vw;
   border-bottom: 2px solid rgba(0, 0, 0, 0.315);
@@ -172,6 +174,7 @@
 .logo-phone-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo img {
@@ -181,16 +184,25 @@
 
 .phone {
   margin-left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap; /* Prevent wrapping */
 }
 
 .phone a {
-  color: black;
   text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+}
+
+.phone a i {
+  margin-right: 5px;
 }
 
 .menu-toggle {
   display: none;
-  font-size: 2rem;
+  font-size: 1.4rem;
   cursor: pointer;
   position: relative;
   z-index: 2000;
@@ -210,7 +222,7 @@
 .nav-links a {
   text-decoration: none;
   color: #000000;
-  font-size: 1.9rem;
+  font-size: 1.3rem;
   transition: color 0.3s, background-color 0.3s;
   padding: 10px 15px;
   border-radius: 5px;
@@ -224,6 +236,10 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  
   .nav-links {
     display: none;
     flex-direction: column;
@@ -239,15 +255,11 @@
     transform: translateY(-20px);
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
-
+  
   .nav-links.active {
     display: flex;
     transform: translateY(0);
     opacity: 1;
-  }
-
-  .menu-toggle {
-    display: block;
   }
 
   .logo {
@@ -264,17 +276,32 @@
   }
 }
 
-/* Tablet/Laptop Adjustments */
+/* Tablet Styles */
 @media (min-width: 768px) and (max-width: 1024px) {
   .nav-links a {
-    font-size: 1.7rem;
+    font-size: 1.1rem;
   }
 
   .phone {
     font-size: 1rem;
   }
 }
- 
+
+/* Adjustments for smaller screens */
+@media (max-width: 450px) {
+  .logo-phone-container {
+    justify-content: space-between;
+  }
+
+  .phone a {
+    font-size: 1rem;
+  }
+  
+  .logo img {
+    width: 125px;
+  }
+}
+
       
       
       .footer{
@@ -445,6 +472,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
       </head>
       <body>
+       
         <header>
           <nav class="navbar">
             <div class="logo-phone-container">
@@ -455,6 +483,7 @@
                 <a href="tel:+16267200999">
                   <i class="fa-solid fa-phone"></i> 0162/7200999
                 </a>
+                <a href="#" style="font-size: 2rem;"><i class="fa-brands fa-whatsapp"></i></a>
               </div>
             </div>
             <div class="menu-toggle" id="menu-toggle">
@@ -463,16 +492,16 @@
             <div class="all">
               <div class="container">
                 <ul class="nav-links" id="nav-links">
-                  <li><a href="index.html#hero">Hero</a></li>
-                  <li><a href="index.html#service-label">Our Services</a></li>
-                  <li><a href=""><i class="fa-brands fa-whatsapp"></i> Whatsapp Us</a></li>
-                  <li><a href="mailto:mwschadengutachten@gmail.com"><i class="fa-solid fa-envelope"></i> Email Us</a></li>
-                  
+                  <li><a href="index.html#hero" id="hero-link">Hero</a></li>
+                  <li><a href="index.html#service-label" id="services-link">Our Services</a></li>
+                  <li><a href="#" id="whatsapp-link"><i class="fa-brands fa-whatsapp"></i> Whatsapp Us</a></li>
+                  <li><a href="mailto:mwschadengutachten@gmail.com" id="email-link"><i class="fa-solid fa-envelope"></i> Email Us</a></li>
                 </ul>
               </div>
             </div>
           </nav>
         </header>
+        
         
       
       
@@ -578,12 +607,19 @@
       
       <script>
   
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-      
-        menuToggle.addEventListener('click', () => {
-          navLinks.classList.toggle('active');
-        });
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+const heroLink = document.getElementById('hero-link');
+const emailLink = document.getElementById('email-link');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  
+  // Hide other links, show only Our Services and Whatsapp Us
+  heroLink.style.display = 'none';
+  emailLink.style.display = 'none';
+});
+
       
       </script>
 
